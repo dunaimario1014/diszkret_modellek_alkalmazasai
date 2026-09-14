@@ -12,11 +12,21 @@ def is_associated_mod_n(a:int, b:int, n:int) -> bool:
     return False
 
 def is_unit_mod_n(a:int, n:int) -> bool:
-    raise NotImplementedError
+    if divides_mod_n(a, 1, n):
+        return True
+    return False
 
 def is_irreducible_mod_n(a:int, n:int) -> bool:
-    raise NotImplementedError
-
+    if a == 0 or is_unit_mod_n(a, n):
+        return False
+    
+    for b in range(n):
+        for c in range(n):
+            if (b*c)%n == a%n:
+                if not is_unit_mod_n(b,n) and not is_unit_mod_n(c,n):
+                    return False
+    return True
+    
 def is_prime_mod_n(p:int, n:int) -> bool:
     raise NotImplementedError
 
