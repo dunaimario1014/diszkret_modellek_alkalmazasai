@@ -28,7 +28,14 @@ def is_irreducible_mod_n(a:int, n:int) -> bool:
     return True
     
 def is_prime_mod_n(p:int, n:int) -> bool:
-    raise NotImplementedError
+    if p <= 0 or is_unit_mod_n(p,n):
+        return False
+    for a in range(n):
+        for b in range(n):
+            if divides_mod_n(p,a*b,n):
+                if not divides_mod_n(p,a,n) and not divides_mod_n(p,b,n):
+                    return False
+    return True
 
 # DO NOT MODIFY THE FOLLOWING
 if __name__ == "__main__":
