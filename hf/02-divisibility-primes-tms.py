@@ -1,5 +1,4 @@
 # Írj programot, amely egy adott Z_m struktúrában definíció alapján meghatározza az egységeket, irreducibiliseket és prímeket!
-import math
 def divides_mod_n(a:int, b:int, m:int) -> bool:
     for c in range(m):
         if(a * c) % m == b % m:
