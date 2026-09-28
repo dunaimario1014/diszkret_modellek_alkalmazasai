@@ -24,4 +24,4 @@ def eraszt(n:int) -> list[int]:
     return primes
 
 
-print(eraszt(2000))
+
