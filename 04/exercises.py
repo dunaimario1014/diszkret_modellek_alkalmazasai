@@ -1,3 +1,4 @@
+import math
 print('Diszkrét modellek és alkalmazásai - Lab 4 - Congruences and residue systems')
 
 # Congruences and residue systems
@@ -42,7 +43,8 @@ def classify_elements(input_set: list[int], m: int) -> dict[int, list[int]]:
             result[mod] = [elem]
     return result
 
-
+import sympy
+import math
 # 3. Modular inverse ----------------------------------------------------------
 def invmod(a: int, m: int) -> int | None:
     """
@@ -53,11 +55,21 @@ def invmod(a: int, m: int) -> int | None:
     gcd(a, m) the coefficient of a is the inverse, provided that
     gcd(a, m) == 1. Do not use pow(a, -1, m).
     """
+    #Tehát
+    # a*x + b*y = c -> itt (itt a gcd változó a c)
+    # Ha c = 1, akkor fixen van megoldás
+    # Az explicit megoldásnál sokkal gyorsabban/hatékonyabban fut, ami nyílván nagy bemenetnél számít
+    x, y, gcd = sympy.gcdex(a, m)
+
+    if gcd == 1:
+        return x%m
+    return None
+    """
     for i in range(m):
         if (a*i)%m == 1:
             return i
     return None
-
+    """
 
 # 4. Linear congruence --------------------------------------------------------
 def my_solve_mod(a: int, b: int, m: int) -> set[int]:
@@ -74,11 +86,30 @@ def my_solve_mod(a: int, b: int, m: int) -> set[int]:
     modulo m / d. From its single solution the d solutions follow at
     distance m / d from each other.
     """
+    d = math.gcd(a,m)
+    megoldasok = set()
+    if b % d == 0:
+        a_red = a//d
+        b_red = b//d
+        m_red = m//d
+        a_inv = invmod(a_red, m_red)
+        res = b_red*a_inv%m_red
+        megoldasok.add(res)
+        for i in range(d-1):
+            res += m_red
+            megoldasok.add(res)
+    else:
+        return megoldasok
+    return megoldasok
+
+    """
     megoldasok = set()
     for i in range(m):
         if (a*i)%m == b%m:
             megoldasok.add(i)
     return megoldasok
+    """
+    raise NotImplementedError
 
 
 # Practice exercises ----------------------------------------------------------
