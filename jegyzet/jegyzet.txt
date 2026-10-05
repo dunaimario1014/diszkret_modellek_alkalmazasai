@@ -1,0 +1,119 @@
+Oszthatóság{
+
+    Asszociált: a,b eleme Z: a~b, ha a|b és b|a -> (-2)~2 -> (-a)~a
+
+    Egység: e eleme Z egység ha: VaE:JáEZ a=eá -> -1 és 1
+
+    Irreducibilis:  aEZ  irreducibilis, ha a=bc -> b vagy c egység, ilyenkor a másik
+                    az asszociáltja lesz az a-nak.
+
+                    5 = 1(egység) * 5(asszociált) = (-1)(egység) * (-5)(asszociált)
+
+                    Bárhogyan is írjuk fel két egész szám szorzataként (p = a * b),
+                    az egyik tényezőnek mindenképpen egységnek kell lennie.
+
+    Egy szám nem irreducibilis ha:
+                     
+                    -0
+
+                    -A szám egység (-1, 1)
+
+                    -Összetett szám: 6 = 2*3 -> fel lehet írni nyilván 1*6-ként is,
+                     de ha másképpen is felírható, akkor már nem irreducibilis
+
+
+    Prímelem: 
+                    Nem nulla.
+                    
+                    Nem egység.
+                    
+                    Teljesül rá a prímtulajdonság: Ha p osztója egy kéttényezős szorzatnak,
+                    akkor feltétlenül osztója legalább az egyik tényezőnek.
+
+                    p|ab -> p|a v p|b
+
+    Prímszám:
+                    N feletti prímelemek
+
+                    N feletti irreducibilis elemek
+
+                    Nincs valós osztójuk
+
+
+}
+
+
+Legnagyobb közös osztó, Diofantikus egyenletek{
+
+    Számelmélet alaptétele:
+        -Minden 0-tól és egységektől különböző egész szám sorrendtől és asszociáltaktól
+         független felírható prímszámok sorozataként.
+
+    Euklideszi algoritmus:
+        -V a,bEZ Jq,rEZ: a=b*q+r ahol: 0<=r<b
+
+        (a,b) = c -> ha osztja őket -> a=b*q+r -> c|a, c|b, c|r -> tehát (b,r) = (a,b) = c
+
+        Euklideszi algoritmus levezetése:
+
+        (172, 62) = (62, 48) = (48, 14) = (14, 6) = (6,2)
+        172 = 62*2 + 48
+        62 = 48*1 + 14
+        48 = 14*3 + 6
+        14 = 2*6 + 2 -> ő volt az utolsó nem nulla maradék, tehát ő 
+        6 = 3*2 + 0
+
+        Tulajdonság:
+            (c*a,c*b) = c*(a,b)
+
+    Lineáris diofantikus probléma:
+        a,b,c EZ: a*x+b*y=c x,yEZ
+
+        Tétel: Ha J(a,b), akkor J x,y EZ: ax+by=(a,b) -> bővített euklideszi algoritmus
+
+        Bőv Euklideszi algoritmus:
+
+        (172,62) = 
+        172= 62*2 + 48 -> 48 = 172*1 + 62*(-2)
+        62 = 48*1 + 14 -> 14 = 62*1 - 48*1 [48 behelyettesíteni 172*1+62*(-2)] -> 172*(-1) + 62*(2+1) = 172*(-1) + 62*3
+        48 = 14*3 + 6  -> 6  = 48*1 - 14*3 = 172*1 + 62*(-2) - 3(172*(-1)+62*3) = 172*4+62*(-11)
+        14 = 6*2  + 2  -> 2  = 14 - 6*2 = 172*(-1) + 62*3 - 2(172*4+62*(-11)) = 172*-(9) + 62*25
+
+        TEHÁT : 172x+62y=2 -> [x = -9] és [y = 25]
+
+        HA ismerjük egy megoldását, akkor ismerjük az összeset:
+        xt = -9 + 31t -> 62-nek a fele
+        yt = 25 - 86t -> 172-nek a fele
+
+}   
+
+Maradékrendszerek{
+
+    Kongruencia:
+    A kongruencia a legegyszerűbben úgy fogható fel,
+    mint a maradékok egyenlősége. Két szám akkor kongruens egy adott m számra
+    (a modulusra) nézve, ha mindkettőt elosztva m-mel ugyanazt a maradékot kapjuk.
+
+    A kongruenica modulo m ekvivalencia reláció az egész számok halmazán
+
+    Egész számok esetén a kongruencia által meghatározott osztályokat maradékosztálynak,
+    a rendszerüket maradékrendszernek nevezzük.
+
+    Ha a maradékrendszerből elhagyjuk az összes olyan maradékosztályt,
+    melyek elemei nem relatív prímek a modulushoz, akkor a redukált maradékrendszert kapjuk meg.
+
+
+    Moduláris inverz:
+    A feladat az, hogy találjunk egy olyan x egész számot,
+    amivel az a-t megszorozva az eredmény m-mel osztva 1-et ad maradékul.
+
+    3x _= 1 (mod 7)
+    x=1 3*1=3,  maradék 3
+    x=2 3*2=6,  maradék 6
+    x=3 3*3=9,  maradék 2
+    x=4 3*4=12, maradék 5
+    x=5 3*5=15, maradék 1 -> ez a moduláris inverz
+
+
+
+}
