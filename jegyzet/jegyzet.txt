@@ -115,5 +115,52 @@ Maradékrendszerek{
     x=5 3*5=15, maradék 1 -> ez a moduláris inverz
 
 
+    Lineáris kongruencia:
 
+    keresünk egy olyan x értéket, amelyre teljesül,
+    hogy az a*x - b különbség maradéktalanul osztható m-mel.
+
+    Az összes x, ami megoldja ezt az egyenletet, az a-nak a moduláris inverze
+
+    2x _= 7 (mod 5) -> 2x+7y=5
+    megoldások: I.  bővített euklideszi
+                II. kongruenciára felrt tulajdonságok használata   
+
+
+}
+
+
+Euler-fermat-tétel{
+
+    Kis fermat-tétel:
+    Ha p prím, és a egy p-vel osztható egész szám, akkor:
+    a^(p-1) _= 1(p)
+
+    Ha a és m relatív prímek, akkor:
+    a^(phi(m)) _= 1(m)
+
+    3.phi(11) = 10
+    
+    1. 51**12 mod 11
+
+    2. 51 mod 11 = 7 -> 7**12 mod 11
+
+    4. 7**(1* 10 + 2)
+
+    5. 7**1 *phi(11) * 7**2
+
+    6. (7**phi(11))**1 * 7**2
+
+    7. 
+
+
+
+
+}
+
+Kérdések:{
+    Lineáris kongruencia megoldása a tulajdonságokra hagyatkozva, ahogy a videoban is volt?
+    https://www.youtube.com/watch?v=7W3Y4iYISRg
+
+    
 }
