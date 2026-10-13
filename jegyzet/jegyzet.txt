@@ -274,6 +274,23 @@ Diffie - Helman kulcs csere{
     5 -> 4 -> 6 -> 2 -> 3 -> 1
     6 -> 1
 
+    1. lépés
+    Alice és Bob választ 1 p prímet és egy g generátor elemet
+    ordp(g)=p-1
+    (p,g) -> publikus pár
+
+    2.lépés
+    Alice választ egy x értéket Zp*-ból
+    Bob ugyanígy választ egy y értéket
+
+    x,y titkos értékek
+
+    kiszámolják g^x és g^y értéket modulo p és ezeket
+    megosztják egymással
+
+    Alice a Bobtól kapott értéket (g^y) x hatványra emeli
+    ebből lesz g^xy mod p
+
 }
 
 
@@ -283,6 +300,11 @@ Kérdések:{
     https://www.youtube.com/watch?v=7W3Y4iYISRg
 
     
-}51
+}
 
-9
+Jegyzet{
+
+    legnagyobb közös osztó:
+
+
+}
