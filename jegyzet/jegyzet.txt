@@ -132,6 +132,43 @@ Maradékrendszerek{
 
 Euler-fermat-tétel{
 
+    Modulo m -> ekvivalencia reláció 
+
+    Egy maradék osztályt redukáltnak hívunk, ha (a,m)=1 tehát relatí prímek
+
+    HA a_=b (m), akkor m|a-b -> (m,a)=(m,b)
+
+    teljes maradékrendszer:
+    Egy rögzített m modulus esetén egy olyan számhalmaz, amely
+    minden modulo m maradékosztályból pontosan egy számot tartalmaz,
+    teljes maradékrendszernek nevezünk modulo m.
+
+    mod 6 = {2,4,6,13,15,17}
+    marad = {4,2,0,1, 3, 5 } -> (ezek a maradékok a felső halmazból 2->4, 4->2, 6->0) 
+
+    redukált maradékrendszer:
+    Rögzített m modulus esetén egy olyan számhalmazt, amely pontosan egy
+    számot tartalmaz minden modulo m redukált maradékosztályból,
+    redukált maradékrendszernek nevezünk modulo m.
+
+    (minden m > relatív prím fog tartozni ebbe az osztályba)
+    mod 6 =  {1,5}
+    mod 10 = {1,3,7,9}
+
+    Euler-féle phi függvény:
+    Egy m<0 egész szám esetén legyen phi(m) az m-nél kisebb,
+    hozzá relatív prím számok száma.
+
+    Ennek a függvénynek van egy kannonikus alakja:
+    m = p1^a1 * p2^a2 * ... pl^al
+    phi(m) = m * (1 - 1/pi)
+    phi(10) ->
+    Először kellenek a prím tényezői, ami ezesetben: 2^1*5^1
+    phi(10) = 10 * (1 - 1/2) * (1 - 1/5) = 4
+
+
+
+
     Kis fermat-tétel:
     Ha p prím, és a egy p-vel osztható egész szám, akkor:
     a^(p-1) _= 1(p)
@@ -158,9 +195,94 @@ Euler-fermat-tétel{
 
 }
 
+
+Kriptográfia{
+
+    RSA titkosítás
+    DH kulcs csere
+
+    Rivest Shamir Ableman:
+    -Euler fermat tétel
+    
+    -Moduláris inverz -> 2 <= mEZ, aEZ: a*x_=1(m) -> a*x+m*y=1,
+    akkor létezik egy ilyen x szám, ha (a,m)=1 -> tehát relatív prímek
+    Például m=7, a=4 x=2 -> a=4 * x=2 = 1 (m=7) 
+
+
+    Az RSA egy asszimetrikus titkosítási séma
+    RSA 3 fázis
+
+    1. (Alice) publikus + privát kulcs{
+        1. ELőször választ 2 véletlenszerű prímet -> p,q -> p!=q és 
+        2. kiszámolja -> n = p*q
+           kiszámolja -> phi(n) amely felírható -> (p-1)*(q-1)
+        3. Választ egy e számot, amely relatív prím a phi(n)-hez
+        4. meghatározza az e moduláris inverzét, azt a d számot, amelyre:
+           e*d=_1 mod(phi(n))
+
+    }
+
+    2.Titkosítás Bob{
+        Ismeretében van Alice publikus kulcsának (n,e)
+
+        Szeretne egy m üzenetet elküldeni Alicenek, aki ezt vissza tudja majd fejteni(p,q,d)
+    
+        1. Bob kiszámolja m^e(n) = s és elküldi s-t [0<m<n]
+
+
+    }
+
+    3.Visszafejtés Alice{
+        Megkapta s-t ->
+        s^d =_ (m^e)^d =_ m^(e*d) m^(phi(n)*t+1) =_ (m^phi(n))^t * m =_ m (n)
+
+        e*d = phi(n)*t+1
+    }
+
+    Példa{
+        p = 5
+        q = 7
+        n = 35
+        phi(n) = 24
+        e = 5
+        d = 5
+        m = 9
+        m^e (n) =_ 4
+        s^d (n) =_ 9
+
+
+    }
+
+}
+
+Diffie - Helman kulcs csere{
+
+
+
+    pEZ prím Zp={0,1,..,p-1} ezek mind relatív prímek p-hez
+             Zp* = Zp\{0}
+
+    aEZp -> a^0,a^1,a^2,...,a^p-1 =_ a^0, a^p=_a^0 -> ciklikusság p-1 hosszú legfeljebb a ciklus
+
+    p = 7
+
+    a = 
+    1 -> 1
+    2 -> 4 -> 1
+    3 -> 2 -> 6 -> 4 -> 5 -> 1
+    4 -> 2 -> 1
+    5 -> 4 -> 6 -> 2 -> 3 -> 1
+    6 -> 1
+
+}
+
+
+
 Kérdések:{
     Lineáris kongruencia megoldása a tulajdonságokra hagyatkozva, ahogy a videoban is volt?
     https://www.youtube.com/watch?v=7W3Y4iYISRg
 
     
-}
+}51
+
+9
