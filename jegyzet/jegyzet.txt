@@ -49,6 +49,20 @@ Legnagyobb közös osztó, Diofantikus egyenletek{
         -Minden 0-tól és egységektől különböző egész szám sorrendtől és asszociáltaktól
          független felírható prímszámok sorozataként.
 
+    Papiron lkkt és lnko
+
+    (72, 120)
+
+    72 = 2^3 * 3^2
+    120 = 2^3 * 3^1 * 5^1
+
+    Keressük meg a közös prímalapokat.
+    LNKO (72, 120) = 2^3 * 3^1 = 8 * 3 = 24
+
+    LKKT:
+    Írjuk fel az összes prímalapot, ami legalább az egyikben szerepel(legnagyobb kitevővel):
+    LKKT (72, 120) = 2^3 * 3^2 * 5^1 = 8 * 9 * 5 = 360
+
     Euklideszi algoritmus:
         -V a,bEZ Jq,rEZ: a=b*q+r ahol: 0<=r<b
 
@@ -308,3 +322,266 @@ Jegyzet{
 
 
 }
+
+
+
+60|2​‌
+30|2​‌
+15|3​‌
+5 |5​‌
+1​‌
+
+2^2*3*5
+
+84|2
+42|2
+21|3
+7 |7
+1
+2^2*3*7
+
+lnko(60, 84) = 2*2*3 = 12
+lkkt(60, 84) = 2*2*3*5*7 = 420
+
+
+Euklideszi algoritmus (138, 60):
+138 = 2*60 + 18
+60  = 3*18 + 6
+18  = 3*6 + 0
+Az algoritmus megoldása -> 6
+
+A 4. feladatot nem tudom szavakkal indokolni, az euklideszi algoritmus miatt igaz
+
+
+Az 5. feladat indoklása: mivel 1 = a futás vége, így feltételezem, hogy a két szám igazából relatív prímek, illetve a 23 amúgy is prím nem?
+
+6. feladat: ez egy diofantikus egyenlet ax*by=c ahol pontosan akkor létezik c ha (a,b)|c (a,b) = 3 tehát nem lehetséges egész számokra ez az egyenlet
+
+
+7. 
+1 Hamis Ez csak azt bizonyítja, hogy a két szám relatív prím
+2 Igaz
+3 Igaz
+4 nem értem a kérdést, a relatív prímséget, csak konkrétan más számokhoz tudjuk vizsgálni, mit jelent az hogy páronként relatív prímek, azok biztosan relatív prímek?
+5 ugyanaz a kérdésem mint az előzőnél
+
+
+
+
+1.
+(84,30): 84 = 2*30 + 24 -> 30 = 24 + 6 -> 24 = 4*6 + 0 megoldás -> 6
+2.
+(126,48) 126 = 2*48 + 30 -> 48 = 30 + 18 -> 30 = 18 + 12 -> 18 = 12 + 6 -> 12 = 2*6 megoldás -> 6
+3.
+(105,42) 105 = 2*42 + 21 -> 42 = 2*21 megoldás -> 21
+4.
+(221,153) 221 = 153 + 68 -> 153 = 2*68 + 17 -> 68 = 4*17 + 0 megoldás -> 17
+5.
+(414,252) 414 = 252 + 162 -> 252 = 162 + 90 -> 162 = 90 + 72 -> 90 = 72 + 18 -> 72 = 4*18 + 0 megoldás -> 18
+
+21 | 3
+7  | 7
+1
+
+28 | 2
+14 | 2
+7  | 7
+
+
+20 | 2
+10 | 2
+5  | 5
+1
+
+44 | 2
+22 | 2
+11 | 11
+1
+(20, 44) = 2^2 = 4
+
+Melyik egyenletnek van megoldása?
+
+(34, 10) = 2 -> 34x + 10y = 126  van megoldása
+
+34x + 10y = 126
+35x + 25y = 68 -> (35, 25) = 15 -> 15|68? Nincs megoldása
+28x + 21y = 41 -> (28, 21) = 7  ->  7|41? Nincs megoldása
+28x + 6y = 129 -> (28,  6) = 2  -> 2|129? NIncs megoldása
+
+
+Hány nemnegatív egész megoldása van a 11x + 7y = 68 egyenletnek?
+Válasz: 1
+
+11*x =_ 68 mod 7 -> 4*x =_ 5 mod 7 -> 4*x =_ 12 mod 7 -> x =_ 3 mod 7
+
+Honnan tudom hogy ez az egyetlen megoldás?
+A kongruencia megadja a lépésközt: a jó x-ek 7esével követik egymást 3, 10, 17
+A 68 pedig megadja a plafont, mivel x és y nem lehet negatív, ezért a 7esével ugráló intervallumba csak a 3 fér bele
+
+Kérdés: Mennyi 117 és 143 legnagyobb közös osztója?
+Válasz: 13
+(143, 117)
+143 = 117 + 26
+117 = 26*4+ 13
+13  = 13  + 0
+
+
+Kérdés: Hány nemnegatív egész megoldása van a 5x + 6y = 38 egyenletnek?
+Válasz: 1
+5*x =_ 38 mod 6
+11x =_ 44 mod 6 -> /11
+x   =_ 4  mod 6 
+
+Megint: mivel egész pozitívakról van szó, csak a 4 jöhet szóba, ugyanis a következő
+szám az 10 lenne (6-osával lépkedve mod 6-ban ugye) de 5*10 =40, ami már több mint 38
+Tehát 1 megoldása van az egyenletnek
+
+
+Mennyi 120 és 135 legnagyobb közös osztója?
+Válasz: 15
+
+(135, 120)
+135 = 120 + 15 -> ez a megoldás
+120 = 15*8 + 0
+
+Kérdés: Melyik egyenletnek van egész megoldása?
+Válasz: 12x + 22y = 92
+Megjegyzés: Ezeknek nincs:
+	24x + 26y = 31 2 |31? nem
+	23x + 23y = 88 23|88? nem
+	16x + 22y = 27 2 |27? nem
+
+(12, 22) = 2 és 2|92 -> ez a megoldás
+
+Kérdés: Hány nemnegatív egész megoldása van a 5x + 12y = 85 egyenletnek?
+Válasz: 2
+
+ax =_ b mod m
+
+5x =_ 85 mod 12
+5x =_ 1  mod 12 -> +24
+5x =_ 25 mod 12 -> /5
+x  =_ 5  mod 12
+
+megoldások = {5, 17} 
+17*5 = 85
+5*85 + 12*0 = 85
+
+len(megoldások) = 2
+
+Kérdés: Mennyi 282\mod5?
+Válasz: 2
+Megjegyzés: 282 mod 5
+Igen
+
+
+
+Mennyi 3^x =_ 5 (mod 7)?
+
+x = 3^0 = 1 =_ 1 mod 7
+x = 3^1 = 3 =_ 3 mod 7
+x = 3^2 = 9 =_ 2 mod 7
+innentől csak a maradékot kell sorban szorozni 3-al
+2 * 3 = 6, tehát ->
+x = 3^3 = 27 =_ 6 mod 7 -> ahogy a maradék megszorzása is megmondta
+x = 3^4 = 6*3 = 18 =_ 4 mod 7
+x = 3^5 = 3*4 =_ 5 mod 7
+
+Mennyi 5 multiplikatív inverze modulo 9? A legkisebb nemnegatív maradékot add meg.
+
+5 * x =_ 1 mod 9
+1*5 =_ 5
+2*5 = 10 =_ 1
+
+Kérdés: Határozd meg a legkisebb nemnegatív x értéket, amelyre 2^x =_ 12 mod 19?
+
+2^0 = 1 =_ 1 mod 19
+2^1 = 2 =_ 2 mod 19
+2^2 = 4 =_ 4 mod 19
+2^3 = 8 =_ 8 mod 19
+2^4 = 16 =_ 16 mod 19
+2^5 = 32 =_ 13 mod 19
+2^6 = (r = 26) =_ 7 mod 19
+2^7 = (r = 14) =_ 14 mod 19
+2^8 = (r = 28) =_ 9 mod 19
+2^9 = (r = 18) =_ 18 mod 19
+2^10 = (r = 36) =_ 17 mod 19
+2^11 = (r = 34) =_ 15 mod 19
+2^12 = (r = 30) =_ 11 mod 19
+2^13 = (r = 22) =_ 3 mod 19
+2^14 = (r = 6) =_ 6 mod 19
+2^15 = (r = 12) =_ 12 mod 19
+2^16 = (r = 24) =_ 5 mod 19
+2^17 = (r = 10) =_ 10 mod 19
+2^18 = (r = 20) =_ 1 mod 19
+
+
+
+Kérdés: Mennyi 4 multiplikatív inverze modulo 9? A legkisebb nemnegatív maradékot add meg.
+
+1 * 4 =_ 4 mod 9
+2 * 4 =_ 8 mod 9
+3 * 4 =_ 3 mod 9
+4 * 4 =_ 7 mod 9
+5 * 4 =_ 2 mod 9
+6 * 4 =_ 6 mod 9
+7 * 4 =_ 1 mod 9
+
+
+
+Mennyi 4 multiplikatív inverze modulo 7? A legkisebb nemnegatív maradékot add meg.
+
+1 * 4 =_ 4 mod 7
+2 * 4 =_ 1 mod 7
+
+
+
+
+
+Határozd meg a legkisebb nemnegatív x értéket, amelyre 3^x  2 (mod 7)
+
+
+3 ^ 1 =_ 3 mod7
+3 ^ 2 =_ 2 mod7
+
+
+Kérdés: Egy RSA rendszer publikus kulcsa (n, e) = (15, 3),
+az üzenet m = 2. Mennyi a titkosított üzenet értéke?
+A legkisebb nemnegatív maradékot add meg.
+
+
+c = m^e mod n
+
+Kérdés: Egy RSA rendszer publikus kulcsa (n, e) = (55, 3),
+az üzenet m = 6. Mennyi a titkosított üzenet értéke?
+A legkisebb nemnegatív maradékot add meg.
+
+c = 6^3 mod 55
+36*6
+6*30 = 180 + 36 = 216 mod 55 -> 3*55 + 51-> 51 a megoldás
+
+
+
+Kérdés: RSA-ban p = 3, q = 11, e = 3. Add meg n, (n), d értékét.
+
+n = p*q = 33
+phi(n) = (p-1)(q-1) = 20
+
+ed =_ 1 modulo phi(n)
+
+3*x =_ 1 mod 20
+x = 7
+
+
+Kérdés: Egy Diffie–Hellman kulcscsere publikus paraméterei p = 13 és g = 2.
+Alice titkos kitevője xA = 3, Bob elküldött publikus értéke B = gxB mod p = 3.
+Mennyi a közös kulcs értéke? A legkisebb nemnegatív maradékot add meg.
+
+K = B^xa mod p
+
+3^3 mod 13 = 1
+
+
+Egy Diffie–Hellman kulcscsere publikus paraméterei p = 13 és g = 2.
+Alice titkos kitevője xA = 2, Bob elküldött publikus értéke B = gxB mod p = 3.
+Mennyi a közös kulcs értéke? A legkisebb nemnegatív maradékot add meg.

@@ -46,8 +46,12 @@ def is_prime_power(n):
 # (p,q) párt, p<q.
 # Nem használható: sympy.factorint.
 def rsa_factor_from_phi(n, phi):
-    raise NotImplementedError
-
+    for p in range(2,n):
+        if sympy.isprime(p):
+            for q in range(2,n):
+                if sympy.isprime(q):
+                    if p*q == n:
+                        return(p,q)
 
 # Do not modify this part!
 if __name__ == '__main__':
