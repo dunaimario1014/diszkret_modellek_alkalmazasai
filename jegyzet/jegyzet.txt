@@ -307,6 +307,35 @@ Diffie - Helman kulcs csere{
 
 }
 
+Lineáris kódok és hibakorlátozás{
+
+    sum^n(n,M,d), ahol
+    n -> kódszavak hossza
+    M -> kódszavak száma
+    d -> kód Hamming távolsága
+    q -> abc elemeinek száma, bináris kódnál q=2
+
+    A kód távolságából közvetlen kiolvasható annak hibakorlátozási képessége:
+    - A kód legfeljebb d-1 hibát képes jelezni és legfeljebb (d-1)/2 hibát képes javítani
+
+    példa:
+        Háromszoros ismétléses kód({000, 111})
+        - Paraméterei: (3, 2, 3)
+        Ötbites kód ({00000, 00111, 11001, 11110})
+        - Paraméterei: (5, 4, 3)
+
+
+    Blokk-kód:
+
+    injektív phi : sum^k -> sum^n függvény által definiált kód, a kódolás során
+    egy k hosszúságú üzenethez egy n hosszúságú kódszót rendelünk.
+
+    k: a hasznos karakterek száma
+    n-k: a hibajelzésre és javításra használt redundancia
+    A kódszavak száma a blok-kód esetén: M / q^k
+
+}
+
 
 
 Kérdések:{
@@ -316,12 +345,7 @@ Kérdések:{
     
 }
 
-Jegyzet{
 
-    legnagyobb közös osztó:
-
-
-}
 
 
 
@@ -358,12 +382,6 @@ Az 5. feladat indoklása: mivel 1 = a futás vége, így feltételezem, hogy a k
 6. feladat: ez egy diofantikus egyenlet ax*by=c ahol pontosan akkor létezik c ha (a,b)|c (a,b) = 3 tehát nem lehetséges egész számokra ez az egyenlet
 
 
-7. 
-1 Hamis Ez csak azt bizonyítja, hogy a két szám relatív prím
-2 Igaz
-3 Igaz
-4 nem értem a kérdést, a relatív prímséget, csak konkrétan más számokhoz tudjuk vizsgálni, mit jelent az hogy páronként relatív prímek, azok biztosan relatív prímek?
-5 ugyanaz a kérdésem mint az előzőnél
 
 
 
@@ -585,3 +603,39 @@ K = B^xa mod p
 Egy Diffie–Hellman kulcscsere publikus paraméterei p = 13 és g = 2.
 Alice titkos kitevője xA = 2, Bob elküldött publikus értéke B = gxB mod p = 3.
 Mennyi a közös kulcs értéke? A legkisebb nemnegatív maradékot add meg.
+
+
+K = B^xa mod p
+
+9 mod 13 = 9
+
+
+11*9 = 99
+
+105 = 99 + 6
+
+5^105 = (5^99)^6 = 5^99      mod9
+
+
+
+Kérdés: Egy RSA rendszer publikus kulcsa (n, e) = (33, 3),
+ az üzenet m = 6. Mennyi a titkosított üzenet értéke?
+A legkisebb nemnegatív maradékot add meg.
+Válasz: 18
+
+n = 33
+e = 3
+m = 6
+d = ?
+c = ?
+phi(n) = 20
+3 * d =_ 1 mod 20
+d = 7
+c^7 =_ 6 mod 33
+
+c =_ m^e mod(n)
+
+
+c^7-6 mod 33
+
+c^d =_ m 

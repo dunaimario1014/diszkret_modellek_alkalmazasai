@@ -9,6 +9,9 @@ from sympy.ntheory.residue_ntheory import (
     n_order,
 )
 
+#Ezt a jegyzetet AI-al generáltattam le, amiben a beépített
+#python függvények vannak a tananyaghoz kapcsolódóan
+
 # ==============================================================================
 # 1. OSZTHATÓSÁG ÉS OSZTÓK VIZSGÁLATA
 # ==============================================================================
